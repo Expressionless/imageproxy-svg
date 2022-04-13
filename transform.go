@@ -44,12 +44,7 @@ func Transform(img []byte, opt Options) ([]byte, error) {
 	}
 
 	// decode image
-	fmt.Printf(string(img))
 	m, format, err := image.Decode(bytes.NewReader(img))
-	if format == "" {
-		fmt.Printf("Error decoding format")
-	}
-	fmt.Println(format != "")
 	if err != nil {
 		return nil, err
 	}

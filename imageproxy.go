@@ -493,6 +493,7 @@ func (t *TransformingTransport) RoundTrip(req *http.Request) (*http.Response, er
 	defer resp.Body.Close()
 
 	if should304(req, resp) {
+		fmt.Println("returning early")
 		// bare 304 response, full response will be used from cache
 		return &http.Response{StatusCode: http.StatusNotModified}, nil
 	}
